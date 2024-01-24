@@ -1,13 +1,21 @@
 package com.sagardhadke.activitylifecycle
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val gotoNext = findViewById<TextView>(R.id.textView)
+        gotoNext.setOnClickListener {
+            startActivity(Intent(this,MainActivity2::class.java))
+        }
+
     }
 
     override fun onStart() {
@@ -31,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "onDestroy Thanks For USing this Application", Toast.LENGTH_SHORT).show()
         super.onDestroy()
     }
 }
